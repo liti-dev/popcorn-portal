@@ -1,10 +1,20 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 
 const ratingContainer = {
   display: "flex",
 }
 const starContainer = {
   display: "flex",
+}
+
+StarRatings.propTypes = {
+  maxRating: PropTypes.number,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  className: PropTypes.string,
+  defaultRating: PropTypes.number,
+  setMovieRating: PropTypes.func,
 }
 
 export default function StarRatings({
@@ -19,7 +29,7 @@ export default function StarRatings({
 
   function handleSetRating(num) {
     setRating(num)
-    setMovieRating && setMovieRating(num)
+    setMovieRating && setMovieRating()
   }
   return (
     <div style={ratingContainer} className={className}>
